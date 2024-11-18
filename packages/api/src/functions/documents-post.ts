@@ -35,6 +35,7 @@ export async function postDocuments(request: HttpRequest, context: InvocationCon
     });
     const rawDocument = await loader.load();
     rawDocument[0].metadata.source = filename;
+    context.log("Processed rawDocument:", rawDocument);
 
     // Split the text into smaller chunks
     const splitter = new RecursiveCharacterTextSplitter({
